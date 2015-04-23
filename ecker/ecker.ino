@@ -19,7 +19,7 @@ float tempC(){
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print("/T:");
+  Serial.print("T:");
   Serial.print(tempC());
   Serial.print("/L:");
   Serial.print(light());
