@@ -1,8 +1,9 @@
 int lmPin = A0;
 int photoPin = A1;
-int irPin = A2;
+int airPin1 = A4;
+int airPin2 = A5;
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
 }
 int light(){
@@ -10,27 +11,21 @@ int light(){
   return x;
 }
 
-int ir(){
-  int x = analogRead(irPin);
-  return x;
-}
-
 float tempC(){
   float raw =                 analogRead(lmPin);
-  //return ((raw * 5.0 / 1024.0 ) - 0.5 ) * 10;
-//  
-  //float percent = raw / 1023.0;
-  //float volts = percent;
-  //return 100.0 * volts;
-  return raw;
+  float percent = raw / 1023.0;
+  float volts = percent;
+  return 100.0 * volts;
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print("T:");
-  Serial.println(tempC());
-  Serial.print("L:");
-  Serial.println(light());
-  Serial.print("IR:");
-  Serial.println(ir());
+  Serial.print("/T:");
+  Serial.print(tempC());
+  Serial.print("/L:");
+  Serial.print(light());
+  Serial.print("/A1:");
+  Serial.print(analogRead(airPin1));
+  Serial.print("/A2:");
+  Serial.println(analogRead(airPin2));
   delay(1000);
 }
