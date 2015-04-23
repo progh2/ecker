@@ -12,3 +12,9 @@ info...
 `important word` is me.. 
 
 ecker
+
+
+# Reference
+* http://thingspeak.com/ - open api for iot datas
+* 
+* 
